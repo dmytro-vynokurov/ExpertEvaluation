@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Linq;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 
 namespace ExpertEvaluation.classes
 {
-    class UserDao
+    class Dao
     {
 
         private static MongoCollection GetCollection<T>(string collectionName)
@@ -22,5 +23,13 @@ namespace ExpertEvaluation.classes
             var result = collection.FindOneAs<User>(query);
             return result;
         }
+
+//        public Question[] GetQuestions()
+//        {
+//            var collection = GetCollection<Question>("questions");
+////            var query = Query<Question>.;
+//            var result = collection.FindAllAs<Question>();
+//            return result.Aggregate(); 
+//        }
     }
 }

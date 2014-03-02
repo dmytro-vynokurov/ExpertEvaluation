@@ -2,11 +2,7 @@
 
 namespace ExpertEvaluation.classes
 {
-    internal enum QuestionType
-    {
-        BooleanQuestion,
-        OneOfMany
-    };
+   
 
     class Answer
     {

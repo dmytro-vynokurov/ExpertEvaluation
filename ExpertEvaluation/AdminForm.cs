@@ -17,5 +17,11 @@ namespace ExpertEvaluation
         {
             InitializeComponent();
         }
+
+    
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add("Question", "Type");
+        }
     }
 }
