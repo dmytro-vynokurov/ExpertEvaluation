@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExpertEvaluation.classes;
 
 namespace ExpertEvaluation
 {
@@ -22,11 +23,38 @@ namespace ExpertEvaluation
             string login = loginTextBox.Text;
             string password = passwordTextBox.Text;
 
-            //TODO: Add login logic 
+            var userDao = new UserDao();
+            var userFound = userDao.GetUserByLogin(login);
+            Console.WriteLine(@"userFound: "+userFound);
 
-            this.Hide();
-            var adminForm = new AdminForm();
-            adminForm.Show();
+            if (userFound == null)
+            {
+                MessageBox.Show(@"Cannot find user: " + login, @"Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (userFound.Password != password)
+                {
+                    MessageBox.Show(@"Incorrect password", @"Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (userFound.Type == UserType.Admin)
+                    {
+                        this.Hide();
+                        var adminForm = new AdminForm();
+                        adminForm.Show();
+                    }
+                    else
+                    {
+                        //TODO: Add User form    
+                        throw new NotImplementedException();
+                    }
+                }
+            }
+
 
         }
     }
