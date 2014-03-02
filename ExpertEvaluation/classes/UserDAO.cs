@@ -17,11 +17,9 @@ namespace ExpertEvaluation.classes
 
         public User GetUserByLogin(string login)
         {
-            Console.WriteLine(@"Getting user by login: "+login);
             var collection = GetCollection<User>("users");
             var query = Query<User>.EQ(e => e.Login, login);
             var result = collection.FindOneAs<User>(query);
-            Console.WriteLine(@"User found: " + result);
             return result;
         }
     }
