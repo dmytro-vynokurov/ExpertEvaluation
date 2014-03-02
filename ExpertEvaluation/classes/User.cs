@@ -4,7 +4,7 @@ namespace ExpertEvaluation.classes
 {
     internal enum UserType
     {
-        Admin, User
+        Admin, Expert
     }
 
     class User
