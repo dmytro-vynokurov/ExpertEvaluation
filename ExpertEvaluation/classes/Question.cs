@@ -8,19 +8,25 @@ using MongoDB.Bson;
 namespace ExpertEvaluation.classes
 {
 
-    internal enum QuestionType
+    public enum QuestionType
     {
         BooleanQuestion,
         OneOfMany
     };
 
-    class Question
+    public class Question
     {
-        public Question(int questionNumber, QuestionType questionType)
+        public static Dictionary<QuestionType,String> QuestionDictionary = 
+            new Dictionary<QuestionType, string>()
+            {
+                {QuestionType.BooleanQuestion, "Boolean"},
+                {QuestionType.OneOfMany, "One of many"}
+            };
+
+        public static IEnumerable<QuestionType> GetQuestionTypes()
         {
-            QuestionNumber = questionNumber;
-            QuestionType = questionType;
-        }
+            return Enum.GetValues(typeof(QuestionType)).Cast<QuestionType>();
+        } 
 
         public ObjectId Id { get; set; }
 
@@ -31,6 +37,11 @@ namespace ExpertEvaluation.classes
         public string[] PossibleAnswers { get; set; }
         public string RightAnswer { get; set; }
 
+        public string GetPossibleAnswers()
+        {
+            if (PossibleAnswers == null) return "";
+            return String.Join("; ", PossibleAnswers);
+        }
 
         public override string ToString()
         {

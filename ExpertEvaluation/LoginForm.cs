@@ -16,8 +16,8 @@ namespace ExpertEvaluation
             string login = loginTextBox.Text;
             string password = passwordTextBox.Text;
 
-            var userDao = new Dao();
-            var userFound = userDao.GetUserByLogin(login);
+            
+            var userFound = Dao.GetUserByLogin(login);
             Console.WriteLine(@"userFound: "+userFound);
 
             if (userFound == null)

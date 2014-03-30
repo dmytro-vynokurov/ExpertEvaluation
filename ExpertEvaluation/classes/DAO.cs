@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
@@ -16,7 +17,7 @@ namespace ExpertEvaluation.classes
             return database.GetCollection<T>(collectionName);
         }
 
-        public User GetUserByLogin(string login)
+        public static User GetUserByLogin(string login)
         {
             var collection = GetCollection<User>("users");
             var query = Query<User>.EQ(e => e.Login, login);
@@ -24,12 +25,23 @@ namespace ExpertEvaluation.classes
             return result;
         }
 
-//        public Question[] GetQuestions()
-//        {
-//            var collection = GetCollection<Question>("questions");
-////            var query = Query<Question>.;
-//            var result = collection.FindAllAs<Question>();
-//            return result.Aggregate(); 
-//        }
+        public static List<Question> GetQuestions()
+        {
+            var collection = GetCollection<Question>("questions");
+            var cursor = collection.FindAllAs<Question>();
+            var result = new List<Question>(cursor);
+            return result;
+        }
+
+        public static Question GetQuestionByID(int id)
+        {
+            var collection = GetCollection<Question>("questions");
+            var query = Query<Question>.EQ(e => e.QuestionNumber, id);
+            var result = collection.FindOneAs<Question>(query);
+            return result;  
+        }
+
+
+
     }
 }
