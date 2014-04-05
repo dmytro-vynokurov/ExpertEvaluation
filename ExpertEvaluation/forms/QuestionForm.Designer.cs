@@ -43,8 +43,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.manyOfManyQuestionPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.manyOfManyCLB = new System.Windows.Forms.CheckedListBox();
+            this.manyOfManyTB = new System.Windows.Forms.TextBox();
+            this.manyofManyAddButton = new System.Windows.Forms.Button();
+            this.manyOfManyDeleteButton = new System.Windows.Forms.Button();
             this.booleanQuestionPanel.SuspendLayout();
             this.oneOfManyQuestionPanel.SuspendLayout();
+            this.manyOfManyQuestionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // QuestionTextBox
@@ -87,9 +94,9 @@
             this.booleanQuestionPanel.Controls.Add(this.label3);
             this.booleanQuestionPanel.Controls.Add(this.falseRB);
             this.booleanQuestionPanel.Controls.Add(this.trueRB);
-            this.booleanQuestionPanel.Location = new System.Drawing.Point(80, 213);
+            this.booleanQuestionPanel.Location = new System.Drawing.Point(401, 13);
             this.booleanQuestionPanel.Name = "booleanQuestionPanel";
-            this.booleanQuestionPanel.Size = new System.Drawing.Size(315, 158);
+            this.booleanQuestionPanel.Size = new System.Drawing.Size(221, 122);
             this.booleanQuestionPanel.TabIndex = 5;
             this.booleanQuestionPanel.Visible = false;
             // 
@@ -130,7 +137,7 @@
             this.oneOfManyQuestionPanel.Controls.Add(this.label5);
             this.oneOfManyQuestionPanel.Controls.Add(this.oneOfManyRTB);
             this.oneOfManyQuestionPanel.Controls.Add(this.label4);
-            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(210, 175);
+            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(354, 185);
             this.oneOfManyQuestionPanel.Name = "oneOfManyQuestionPanel";
             this.oneOfManyQuestionPanel.Size = new System.Drawing.Size(315, 158);
             this.oneOfManyQuestionPanel.TabIndex = 7;
@@ -191,11 +198,76 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // manyOfManyQuestionPanel
+            // 
+            this.manyOfManyQuestionPanel.Controls.Add(this.manyOfManyDeleteButton);
+            this.manyOfManyQuestionPanel.Controls.Add(this.manyofManyAddButton);
+            this.manyOfManyQuestionPanel.Controls.Add(this.manyOfManyTB);
+            this.manyOfManyQuestionPanel.Controls.Add(this.manyOfManyCLB);
+            this.manyOfManyQuestionPanel.Controls.Add(this.label6);
+            this.manyOfManyQuestionPanel.Location = new System.Drawing.Point(19, 175);
+            this.manyOfManyQuestionPanel.Name = "manyOfManyQuestionPanel";
+            this.manyOfManyQuestionPanel.Size = new System.Drawing.Size(329, 165);
+            this.manyOfManyQuestionPanel.TabIndex = 8;
+            this.manyOfManyQuestionPanel.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Possible Answers";
+            // 
+            // manyOfManyCLB
+            // 
+            this.manyOfManyCLB.FormattingEnabled = true;
+            this.manyOfManyCLB.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "b",
+            "c",
+            "C"});
+            this.manyOfManyCLB.Location = new System.Drawing.Point(3, 26);
+            this.manyOfManyCLB.MultiColumn = true;
+            this.manyOfManyCLB.Name = "manyOfManyCLB";
+            this.manyOfManyCLB.Size = new System.Drawing.Size(119, 124);
+            this.manyOfManyCLB.TabIndex = 2;
+            // 
+            // manyOfManyTB
+            // 
+            this.manyOfManyTB.Location = new System.Drawing.Point(154, 26);
+            this.manyOfManyTB.Name = "manyOfManyTB";
+            this.manyOfManyTB.Size = new System.Drawing.Size(148, 20);
+            this.manyOfManyTB.TabIndex = 3;
+            // 
+            // manyofManyAddButton
+            // 
+            this.manyofManyAddButton.Location = new System.Drawing.Point(154, 52);
+            this.manyofManyAddButton.Name = "manyofManyAddButton";
+            this.manyofManyAddButton.Size = new System.Drawing.Size(100, 23);
+            this.manyofManyAddButton.TabIndex = 4;
+            this.manyofManyAddButton.Text = "Add answer";
+            this.manyofManyAddButton.UseVisualStyleBackColor = true;
+            this.manyofManyAddButton.Click += new System.EventHandler(this.manyofManyAddButton_Click);
+            // 
+            // manyOfManyDeleteButton
+            // 
+            this.manyOfManyDeleteButton.Location = new System.Drawing.Point(154, 81);
+            this.manyOfManyDeleteButton.Name = "manyOfManyDeleteButton";
+            this.manyOfManyDeleteButton.Size = new System.Drawing.Size(100, 23);
+            this.manyOfManyDeleteButton.TabIndex = 5;
+            this.manyOfManyDeleteButton.Text = "Delete checked";
+            this.manyOfManyDeleteButton.UseVisualStyleBackColor = true;
+            this.manyOfManyDeleteButton.Click += new System.EventHandler(this.manyOfManyDeleteButton_Click);
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 429);
+            this.ClientSize = new System.Drawing.Size(647, 486);
+            this.Controls.Add(this.manyOfManyQuestionPanel);
             this.Controls.Add(this.oneOfManyQuestionPanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -211,6 +283,8 @@
             this.booleanQuestionPanel.PerformLayout();
             this.oneOfManyQuestionPanel.ResumeLayout(false);
             this.oneOfManyQuestionPanel.PerformLayout();
+            this.manyOfManyQuestionPanel.ResumeLayout(false);
+            this.manyOfManyQuestionPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,5 +307,11 @@
         private System.Windows.Forms.RichTextBox oneOfManyRTB;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Panel manyOfManyQuestionPanel;
+        private System.Windows.Forms.CheckedListBox manyOfManyCLB;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button manyOfManyDeleteButton;
+        private System.Windows.Forms.Button manyofManyAddButton;
+        private System.Windows.Forms.TextBox manyOfManyTB;
     }
 }

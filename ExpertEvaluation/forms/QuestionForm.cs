@@ -36,7 +36,8 @@ namespace ExpertEvaluation.forms
             _questionPanelDictionary = new Dictionary<QuestionType, Panel>()
             {
                 {QuestionType.BooleanQuestion, booleanQuestionPanel},
-                {QuestionType.OneOfMany,oneOfManyQuestionPanel}
+                {QuestionType.OneOfMany,oneOfManyQuestionPanel},
+                {QuestionType.ManyOfMany,manyOfManyQuestionPanel}
                 // TODO: add mappings between new question types and panels
             };
         }
@@ -87,6 +88,12 @@ namespace ExpertEvaluation.forms
 
         private bool ValidateFields()
         {
+            if (QuestionTextBox.Text.Length<1)
+            {
+                MessageBox.Show(@" Please enter question text", @"Cannot create question",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (_selectedQuestionType==QuestionType.BooleanQuestion && !trueRB.Checked && !falseRB.Checked)
             {
                 MessageBox.Show(@"No right answer chosen", @"Cannot create question",
@@ -99,8 +106,20 @@ namespace ExpertEvaluation.forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            //TODO: add validation for new questions input here
+            if (_selectedQuestionType == QuestionType.ManyOfMany && !ManyOfManyIsValid())
+            {
+                MessageBox.Show(@"No right answer chosen", @"Cannot create question",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+           //TODO: add validation for new questions input here
             return true;
+        }
+
+        private bool ManyOfManyIsValid()
+        {
+            var rightAnswers = manyOfManyCLB.CheckedItems.Count;
+            return rightAnswers >= 1;
         }
 
         private void BindEntityToAttributes()
@@ -126,6 +145,15 @@ namespace ExpertEvaluation.forms
                     UpdateOneOfManyCB();
                     oneOfManyCB.Text = _question.RightAnswers[0];
                     break;
+                case QuestionType.ManyOfMany:
+                    manyOfManyCLB.Items.Clear();
+                    manyOfManyCLB.Items.AddRange(items: _question.PossibleAnswers.ToArray());
+                    foreach (var rightAnswer in _question.RightAnswers)
+                    {
+                        var index = manyOfManyCLB.Items.IndexOf(rightAnswer);
+                        manyOfManyCLB.SetItemChecked(index, true);
+                    }
+                    break;
                 // TODO: add binding for new question types here
             }
         }
@@ -148,6 +176,19 @@ namespace ExpertEvaluation.forms
                     }
                     _question.RightAnswers = new List<string>(){oneOfManyCB.Text};
                     break;
+                case QuestionType.ManyOfMany:
+                    _question.PossibleAnswers = new List<string>();
+                    foreach (var item in manyOfManyCLB.Items)
+                    {
+                        _question.PossibleAnswers.Add(item.ToString());
+                    }
+                    _question.RightAnswers = new List<string>();
+                    foreach (var checkedItem in manyOfManyCLB.CheckedItems)
+                    {
+                        _question.RightAnswers.Add(checkedItem.ToString());
+                    }
+                    break;
+                
                 // TODO: add binding for new entity fields here
             }
         }
@@ -163,6 +204,25 @@ namespace ExpertEvaluation.forms
             foreach (var line in oneOfManyRTB.Lines.Where(line => line.Length > 0))
             {
                 oneOfManyCB.Items.Add(line);
+            }
+        }
+
+        private void manyofManyAddButton_Click(object sender, EventArgs e)
+        {
+            var answer = manyOfManyTB.Text;
+            manyOfManyCLB.Items.Add(answer);
+        }
+
+        private void manyOfManyDeleteButton_Click(object sender, EventArgs e)
+        {
+            var checkedItems = new List<int>();
+            foreach (var item in manyOfManyCLB.CheckedItems)
+            {
+                checkedItems.Add(manyOfManyCLB.Items.IndexOf(item));
+            }
+            foreach (var index in checkedItems.OrderByDescending(i=>i))
+            {
+                manyOfManyCLB.Items.RemoveAt(index);
             }
         }
     }

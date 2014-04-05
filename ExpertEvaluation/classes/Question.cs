@@ -9,7 +9,8 @@ namespace ExpertEvaluation.classes
     public enum QuestionType
     {
         BooleanQuestion,
-        OneOfMany
+        OneOfMany,
+        ManyOfMany
         // TODO: add new question types to enum here
     };
 
@@ -19,7 +20,8 @@ namespace ExpertEvaluation.classes
             new Dictionary<QuestionType, string>
             {
                 {QuestionType.BooleanQuestion, "Boolean"},
-                {QuestionType.OneOfMany, "One of many"}
+                {QuestionType.OneOfMany, "One of many"},
+                {QuestionType.ManyOfMany, "Many of many"}
                 // TODO: add mappings for new question types to their text representation
             };
 
