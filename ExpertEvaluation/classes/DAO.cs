@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using MongoDB.Driver.Linq;
 
 namespace ExpertEvaluation.classes
 {
-    class Dao
+    static class Dao
     {
-
         private static MongoCollection GetCollection<T>(string collectionName)
         {
             var client = new MongoClient("mongodb://localhost");
@@ -25,7 +24,7 @@ namespace ExpertEvaluation.classes
             return result;
         }
 
-        public static List<Question> GetQuestions()
+        public static IEnumerable<Question> GetQuestions()
         {
             var collection = GetCollection<Question>("questions");
             var cursor = collection.FindAllAs<Question>();
@@ -33,12 +32,37 @@ namespace ExpertEvaluation.classes
             return result;
         }
 
-        public static Question GetQuestionByID(int id)
+        public static Question GetQuestionById(int id)
         {
             var collection = GetCollection<Question>("questions");
             var query = Query<Question>.EQ(e => e.QuestionNumber, id);
             var result = collection.FindOneAs<Question>(query);
             return result;  
+        }
+
+        public static int MaxQuestionNumber()
+        {
+            var collection = GetCollection<Sequence>("sequences");
+            var selectQuery = Query<Sequence>.EQ(s => s.Name, "questions");
+            var questionSequence = collection.FindOneAs<Sequence>(selectQuery);
+            var maxQuestionNumber = questionSequence.Value;
+            questionSequence.Value += 1;
+            collection.Save(questionSequence);
+            return maxQuestionNumber;
+        }
+
+        public static void SaveQuestion(Question question)
+        {
+            var collection = GetCollection<Question>("questions");
+            collection.Save(question);
+        }
+
+        public static void DeleteQuestion(int questionNumber)
+        {
+            var collection = GetCollection<Question>("questions");
+            var query = Query<Question>.EQ(e => e.QuestionNumber, questionNumber);
+            collection.Remove(query);
+
         }
 
 

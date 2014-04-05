@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="classes\Answer.cs" />
     <Compile Include="classes\Question.cs" />
+    <Compile Include="classes\Sequence.cs" />
     <Compile Include="classes\User.cs" />
     <Compile Include="QuestionForm.cs">
       <SubType>Form</SubType>

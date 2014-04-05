@@ -37,9 +37,9 @@
             this.falseRB = new System.Windows.Forms.RadioButton();
             this.trueRB = new System.Windows.Forms.RadioButton();
             this.oneOfManyQuestionPanel = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.oneOfManyCB = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.oneOfManyRTB = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -126,23 +126,23 @@
             // 
             // oneOfManyQuestionPanel
             // 
-            this.oneOfManyQuestionPanel.Controls.Add(this.comboBox2);
+            this.oneOfManyQuestionPanel.Controls.Add(this.oneOfManyCB);
             this.oneOfManyQuestionPanel.Controls.Add(this.label5);
-            this.oneOfManyQuestionPanel.Controls.Add(this.richTextBox1);
+            this.oneOfManyQuestionPanel.Controls.Add(this.oneOfManyRTB);
             this.oneOfManyQuestionPanel.Controls.Add(this.label4);
-            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(80, 200);
+            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(210, 175);
             this.oneOfManyQuestionPanel.Name = "oneOfManyQuestionPanel";
             this.oneOfManyQuestionPanel.Size = new System.Drawing.Size(315, 158);
             this.oneOfManyQuestionPanel.TabIndex = 7;
             this.oneOfManyQuestionPanel.Visible = false;
             // 
-            // comboBox2
+            // oneOfManyCB
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(147, 21);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 3;
+            this.oneOfManyCB.FormattingEnabled = true;
+            this.oneOfManyCB.Location = new System.Drawing.Point(147, 21);
+            this.oneOfManyCB.Name = "oneOfManyCB";
+            this.oneOfManyCB.Size = new System.Drawing.Size(121, 21);
+            this.oneOfManyCB.TabIndex = 3;
             // 
             // label5
             // 
@@ -153,13 +153,14 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Correct answer";
             // 
-            // richTextBox1
+            // oneOfManyRTB
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(7, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(114, 134);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.oneOfManyRTB.Location = new System.Drawing.Point(7, 21);
+            this.oneOfManyRTB.Name = "oneOfManyRTB";
+            this.oneOfManyRTB.Size = new System.Drawing.Size(114, 134);
+            this.oneOfManyRTB.TabIndex = 1;
+            this.oneOfManyRTB.Text = "";
+            this.oneOfManyRTB.TextChanged += new System.EventHandler(this.oneOfManyRTB_TextChanged);
             // 
             // label4
             // 
@@ -178,6 +179,7 @@
             this.okButton.TabIndex = 6;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cancelButton
             // 
@@ -226,9 +228,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton falseRB;
         private System.Windows.Forms.RadioButton trueRB;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox oneOfManyCB;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox oneOfManyRTB;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
     }

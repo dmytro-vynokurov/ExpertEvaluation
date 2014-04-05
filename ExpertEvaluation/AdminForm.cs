@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpertEvaluation.classes;
 
@@ -21,40 +15,72 @@ namespace ExpertEvaluation
     
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            foreach (var question in Dao.GetQuestions())
-            {
-                QuestionGrid.Rows.Add(question.QuestionNumber, question.QuestionText, 
-                    question.QuestionType, question.GetPossibleAnswers(),
-                    question.RightAnswer);
-            }
-            
-            
+            RefillQuestionGrid();
+            // TODO: add loading experts
+        }
 
+        private void RefillQuestionGrid()
+        {
+            IEnumerable<Question> questions = Dao.GetQuestions();
+            QuestionGrid.Rows.Clear();
+            foreach (var question in questions)
+            {
+                QuestionGrid.Rows.Add(question.QuestionNumber, question.QuestionText,
+                    question.QuestionType, question.GetPossibleAnswers(),
+                    question.GetRightAnswers());
+            }
         }
 
 
 
-        private void ShowQuestionForm()
+        private void AddQuestionButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             var questionForm = new QuestionForm(this);
             questionForm.Show(); 
         }
 
-        private void AddQuestionButton_Click(object sender, EventArgs e)
-        {
-            ShowQuestionForm();
-        }
-
         private void EditQuestionButton_Click(object sender, EventArgs e)
         {
-            int id = (int) QuestionGrid.CurrentRow.Cells[0].Value;
-            Question question = Dao.GetQuestionByID(id);
-            ShowQuestionForm();
-
-
+            try
+            {
+                var id = GetSelectedQuestionNumber();
+                Question question = Dao.GetQuestionById(id);
+                this.Hide();
+                var questionForm = new QuestionForm(this, question);
+                questionForm.Show();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Cannot extract selected question", @"Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        public new void Show()
+        {
+            base.Show();
+            RefillQuestionGrid();
+        }
 
+        private void DeleteQuestionButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var id = GetSelectedQuestionNumber();
+                Dao.DeleteQuestion(id);
+                RefillQuestionGrid();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(@"Cannot extract selected question", @"Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private int GetSelectedQuestionNumber()
+        {
+            return (int) QuestionGrid.CurrentRow.Cells[0].Value;
+        }
     }
 }
