@@ -1,0 +1,68 @@
+﻿To run the application you should prepare your database:
+1) Cleanup the database:
+	- connect to local mongo
+	- check existing databases:
+		show dbs
+	- select required for the application:
+		use expert_evaluation
+	- check existing collections in chosen DB:
+		show collections
+	- if collections used in the app already exist in your MongoDB,
+	  please make sure that their structure corresponds to the last version of structure
+	  required for the application - find documents in your database and compare them with 
+	  ones that can be found below
+	- if your development database is not up to date, cleanup it:
+		db.questions.remove({}) - this will remove all documents from 
+	  "questions" collection. repeat the same for all other collections that don't match 
+	  the structure
+	- insert testing data to the collections in the db so that it matches the folowing
+		Note! 1. pay attention to naming - capital letters matter
+			  2. you don't have to insert "_id" parameter - it's auto-generated 
+			  3. RightAnswer is an array, nevertheless it contains only one element in the examples
+			  4. QuestionType represent index of values from the enum QuestionType (index of QuestionType.BooleanQuestion is 0)
+		sequences:
+			> db.sequences.find({}).pretty()
+			{
+					"_id" : ObjectId("5340077f687538854352ecc5"),
+					"Value" : 1,
+					"Name" : "questions"
+			}
+			{
+					"_id" : ObjectId("53400785687538854352ecc6"),
+					"Name" : "users",
+					"Value" : 1
+			}
+		questions:
+			> db.questions.find({}).pretty()
+			{
+					"_id" : ObjectId("5339caf587cd9bf2739c8136"),
+					"QuestionNumber" : 1,
+					"QuestionText" : "Who are piglets?",
+					"QuestionType" : 1,
+					"PossibleAnswers" : [
+							"Big bugs",
+							"Small dogs",
+							"Big pigs",
+							"Small pigs"
+					],
+					"RightAnswers" : [
+							"Small pigs"
+					]
+			}
+			{
+					"_id" : ObjectId("534007f1da98fa15080c1967"),
+					"QuestionNumber" : 5,
+					"QuestionText" : "Fifth one",
+					"QuestionType" : 0,
+					"PossibleAnswers" : [
+							"True",
+							"False"
+					],
+					"RightAnswers" : [
+							"False"
+					]
+			}
+			
+		
+
+
