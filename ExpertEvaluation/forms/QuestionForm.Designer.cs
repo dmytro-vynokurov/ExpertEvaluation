@@ -1,4 +1,4 @@
-﻿namespace ExpertEvaluation
+﻿namespace ExpertEvaluation.forms
 {
     partial class QuestionForm
     {

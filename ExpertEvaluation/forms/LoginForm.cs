@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using ExpertEvaluation.classes;
 
-namespace ExpertEvaluation
+namespace ExpertEvaluation.forms
 {
     public partial class LoginForm : Form
     {

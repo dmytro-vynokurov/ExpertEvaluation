@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using ExpertEvaluation.classes;
 
-namespace ExpertEvaluation
+namespace ExpertEvaluation.forms
 {
     public partial class AdminForm : Form
     {
@@ -12,26 +11,16 @@ namespace ExpertEvaluation
             InitializeComponent();
         }
 
-    
+        public new void Show()
+        {
+            base.Show();
+            RefillFormWithData();
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            RefillQuestionGrid();
-            // TODO: add loading experts
+            RefillFormWithData();
         }
-
-        private void RefillQuestionGrid()
-        {
-            IEnumerable<Question> questions = Dao.GetQuestions();
-            QuestionGrid.Rows.Clear();
-            foreach (var question in questions)
-            {
-                QuestionGrid.Rows.Add(question.QuestionNumber, question.QuestionText,
-                    question.QuestionType, question.GetPossibleAnswers(),
-                    question.GetRightAnswers());
-            }
-        }
-
-
 
         private void AddQuestionButton_Click(object sender, EventArgs e)
         {
@@ -57,25 +46,42 @@ namespace ExpertEvaluation
             }
         }
 
-        public new void Show()
-        {
-            base.Show();
-            RefillQuestionGrid();
-        }
-
         private void DeleteQuestionButton_Click(object sender, EventArgs e)
         {
             try
             {
                 var id = GetSelectedQuestionNumber();
                 Dao.DeleteQuestion(id);
-                RefillQuestionGrid();
+                RefillFormWithData();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(@"Cannot extract selected question", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RefillFormWithData()
+        {
+            RefillQuestionGrid();
+            RefillUsersGrid();
+        }
+
+        private void RefillQuestionGrid()
+        {
+            var questions = Dao.GetQuestions();
+            QuestionGrid.Rows.Clear();
+            foreach (var question in questions)
+            {
+                QuestionGrid.Rows.Add(question.QuestionNumber, question.QuestionText,
+                    question.QuestionType, question.GetPossibleAnswers(),
+                    question.GetRightAnswers());
+            }
+        }
+
+        private void RefillUsersGrid()
+        {
+            //TODO: add logic here
         }
 
         private int GetSelectedQuestionNumber()
