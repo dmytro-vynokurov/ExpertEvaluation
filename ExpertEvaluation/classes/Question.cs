@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 
 namespace ExpertEvaluation.classes
@@ -18,7 +16,7 @@ namespace ExpertEvaluation.classes
     public class Question
     {
         public static readonly Dictionary<QuestionType,String> QuestionDictionary = 
-            new Dictionary<QuestionType, string>()
+            new Dictionary<QuestionType, string>
             {
                 {QuestionType.BooleanQuestion, "Boolean"},
                 {QuestionType.OneOfMany, "One of many"}
