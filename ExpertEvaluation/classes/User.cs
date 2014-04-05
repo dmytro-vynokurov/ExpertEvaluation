@@ -2,22 +2,13 @@
 
 namespace ExpertEvaluation.classes
 {
-    internal enum UserType
+    public enum UserType
     {
         Admin, Expert
     }
 
-    class User
+    public class User
     {
-        public User(string name, string login, string password, double estimate, Answer[] answers)
-        {
-            Name = name;
-            Login = login;
-            Password = password;
-            Estimate = estimate;
-            Answers = answers;
-        }
-
         public ObjectId Id { get; set; }
 
         public string Name { get; set; }

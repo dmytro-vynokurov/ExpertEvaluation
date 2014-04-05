@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.EditQuestionButton = new System.Windows.Forms.Button();
             this.DeleteQuestionButton = new System.Windows.Forms.Button();
             this.AddQuestionButton = new System.Windows.Forms.Button();
-            this.QuestionGrid = new System.Windows.Forms.DataGridView();
+            this.questionsDGV = new System.Windows.Forms.DataGridView();
             this.QuestionIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuestionText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuestionTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VariantsAnswerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RightAnswerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.addExpertButton = new System.Windows.Forms.Button();
-            this.editExpertButton = new System.Windows.Forms.Button();
             this.deleteExpertButton = new System.Windows.Forms.Button();
+            this.editExpertButton = new System.Windows.Forms.Button();
+            this.addExpertButton = new System.Windows.Forms.Button();
+            this.expertsDGV = new System.Windows.Forms.DataGridView();
             this.LoginColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PasswordColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.QuestionGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsDGV)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,7 +72,7 @@
             this.tabPage1.Controls.Add(this.EditQuestionButton);
             this.tabPage1.Controls.Add(this.DeleteQuestionButton);
             this.tabPage1.Controls.Add(this.AddQuestionButton);
-            this.tabPage1.Controls.Add(this.QuestionGrid);
+            this.tabPage1.Controls.Add(this.questionsDGV);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -112,46 +111,46 @@
             this.AddQuestionButton.UseVisualStyleBackColor = true;
             this.AddQuestionButton.Click += new System.EventHandler(this.AddQuestionButton_Click);
             // 
-            // QuestionGrid
+            // questionsDGV
             // 
-            this.QuestionGrid.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.QuestionGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.QuestionGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.QuestionGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.questionsDGV.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.questionsDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.questionsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.questionsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QuestionIdColumn,
             this.QuestionText,
             this.QuestionTypeColumn,
             this.VariantsAnswerColumn,
             this.RightAnswerColumn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.QuestionGrid.DefaultCellStyle = dataGridViewCellStyle5;
-            this.QuestionGrid.Dock = System.Windows.Forms.DockStyle.Top;
-            this.QuestionGrid.Location = new System.Drawing.Point(3, 3);
-            this.QuestionGrid.Name = "QuestionGrid";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.QuestionGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.QuestionGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.QuestionGrid.Size = new System.Drawing.Size(549, 406);
-            this.QuestionGrid.TabIndex = 0;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.questionsDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.questionsDGV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.questionsDGV.Location = new System.Drawing.Point(3, 3);
+            this.questionsDGV.Name = "questionsDGV";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.questionsDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.questionsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.questionsDGV.Size = new System.Drawing.Size(549, 406);
+            this.questionsDGV.TabIndex = 0;
             // 
             // QuestionIdColumn
             // 
@@ -188,7 +187,7 @@
             this.tabPage2.Controls.Add(this.deleteExpertButton);
             this.tabPage2.Controls.Add(this.editExpertButton);
             this.tabPage2.Controls.Add(this.addExpertButton);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.expertsDGV);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -196,36 +195,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Experts";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LoginColumn,
-            this.PasswordColumn,
-            this.UserTypeColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(552, 414);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // addExpertButton
-            // 
-            this.addExpertButton.Location = new System.Drawing.Point(4, 424);
-            this.addExpertButton.Name = "addExpertButton";
-            this.addExpertButton.Size = new System.Drawing.Size(75, 23);
-            this.addExpertButton.TabIndex = 1;
-            this.addExpertButton.Text = "Add";
-            this.addExpertButton.UseVisualStyleBackColor = true;
-            // 
-            // editExpertButton
-            // 
-            this.editExpertButton.Location = new System.Drawing.Point(86, 424);
-            this.editExpertButton.Name = "editExpertButton";
-            this.editExpertButton.Size = new System.Drawing.Size(75, 23);
-            this.editExpertButton.TabIndex = 2;
-            this.editExpertButton.Text = "Edit";
-            this.editExpertButton.UseVisualStyleBackColor = true;
             // 
             // deleteExpertButton
             // 
@@ -236,17 +205,40 @@
             this.deleteExpertButton.Text = "Delete";
             this.deleteExpertButton.UseVisualStyleBackColor = true;
             // 
+            // editExpertButton
+            // 
+            this.editExpertButton.Location = new System.Drawing.Point(86, 424);
+            this.editExpertButton.Name = "editExpertButton";
+            this.editExpertButton.Size = new System.Drawing.Size(75, 23);
+            this.editExpertButton.TabIndex = 2;
+            this.editExpertButton.Text = "Edit";
+            this.editExpertButton.UseVisualStyleBackColor = true;
+            // 
+            // addExpertButton
+            // 
+            this.addExpertButton.Location = new System.Drawing.Point(4, 424);
+            this.addExpertButton.Name = "addExpertButton";
+            this.addExpertButton.Size = new System.Drawing.Size(75, 23);
+            this.addExpertButton.TabIndex = 1;
+            this.addExpertButton.Text = "Add";
+            this.addExpertButton.UseVisualStyleBackColor = true;
+            // 
+            // expertsDGV
+            // 
+            this.expertsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.expertsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LoginColumn,
+            this.UserTypeColumn});
+            this.expertsDGV.Location = new System.Drawing.Point(3, 3);
+            this.expertsDGV.Name = "expertsDGV";
+            this.expertsDGV.Size = new System.Drawing.Size(552, 414);
+            this.expertsDGV.TabIndex = 0;
+            // 
             // LoginColumn
             // 
             this.LoginColumn.HeaderText = "Login";
             this.LoginColumn.Name = "LoginColumn";
             this.LoginColumn.ReadOnly = true;
-            // 
-            // PasswordColumn
-            // 
-            this.PasswordColumn.HeaderText = "Password";
-            this.PasswordColumn.Name = "PasswordColumn";
-            this.PasswordColumn.ReadOnly = true;
             // 
             // UserTypeColumn
             // 
@@ -267,9 +259,9 @@
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.QuestionGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionsDGV)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expertsDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -279,7 +271,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView QuestionGrid;
+        private System.Windows.Forms.DataGridView questionsDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuestionIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuestionText;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuestionTypeColumn;
@@ -291,9 +283,8 @@
         private System.Windows.Forms.Button deleteExpertButton;
         private System.Windows.Forms.Button editExpertButton;
         private System.Windows.Forms.Button addExpertButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView expertsDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn LoginColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PasswordColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserTypeColumn;
 
     }

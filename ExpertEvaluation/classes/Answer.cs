@@ -2,9 +2,7 @@
 
 namespace ExpertEvaluation.classes
 {
-   
-
-    class Answer
+    public class Answer
     {
         public Answer(int questionNumber, QuestionType questionType)
         {

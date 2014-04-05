@@ -70,10 +70,10 @@ namespace ExpertEvaluation.forms
         private void RefillQuestionGrid()
         {
             var questions = Dao.GetQuestions();
-            QuestionGrid.Rows.Clear();
+            questionsDGV.Rows.Clear();
             foreach (var question in questions)
             {
-                QuestionGrid.Rows.Add(question.QuestionNumber, question.QuestionText,
+                questionsDGV.Rows.Add(question.QuestionNumber, question.QuestionText,
                     question.QuestionType, question.GetPossibleAnswers(),
                     question.GetRightAnswers());
             }
@@ -86,7 +86,7 @@ namespace ExpertEvaluation.forms
 
         private int GetSelectedQuestionNumber()
         {
-            return (int) QuestionGrid.CurrentRow.Cells[0].Value;
+            return (int) questionsDGV.CurrentRow.Cells[0].Value;
         }
     }
 }
