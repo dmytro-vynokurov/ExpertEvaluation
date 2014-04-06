@@ -42,8 +42,9 @@ namespace ExpertEvaluation.forms
                     }
                     else
                     {
-                        //TODO: Add Expert form    
-                        throw new NotImplementedException();
+                        this.Hide();
+                        var questionaryForm = new QuestionaryForm();
+                        questionaryForm.Show();
                     }
                 }
             }
