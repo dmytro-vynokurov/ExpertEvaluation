@@ -7,8 +7,8 @@ namespace ExpertEvaluation.forms
 {
     public partial class UserForm : Form
     {
-        private AdminForm _parentForm ;
-        private User _user;
+        private readonly AdminForm _parentForm ;
+        private readonly User _user;
 
         public UserForm(AdminForm parentForm)
         {
