@@ -60,6 +60,12 @@
     <Compile Include="classes\Question.cs" />
     <Compile Include="classes\Sequence.cs" />
     <Compile Include="classes\User.cs" />
+    <Compile Include="forms\QuestionaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\QuestionaryForm.Designer.cs">
+      <DependentUpon>QuestionaryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\QuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     <Compile Include="classes\Dao.cs" />
     <EmbeddedResource Include="forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\QuestionaryForm.resx">
+      <DependentUpon>QuestionaryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>

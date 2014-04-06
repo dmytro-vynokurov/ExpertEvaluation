@@ -47,7 +47,7 @@ namespace ExpertEvaluation.forms
             }
             if (!IsPasswordValid())
             {
-                MessageBox.Show(@"Password must not be empty and must not contain spaces", @"Wrong password",
+                MessageBox.Show(@"Password must not contain spaces", @"Wrong password",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -77,15 +77,15 @@ namespace ExpertEvaluation.forms
         private bool IsPasswordValid()
         {
             var password = passwordTB.Text;
-            if (password.Length < 1) return false;
             if (password.Contains(" ")) return false;
             return true;
         }
 
         private bool IsUserTypeValid()
         {
-            var userType = userTypeCB.SelectedText;
-            return Enum.GetNames(typeof (UserType)).Contains(userType);
+            var userType = userTypeCB.SelectedItem.ToString();
+            var availableUserTypeNames = Enum.GetNames(typeof (UserType));
+            return availableUserTypeNames.Contains(userType);
         }
 
         private void BindEntityToAttributes()
