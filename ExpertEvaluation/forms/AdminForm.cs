@@ -35,7 +35,7 @@ namespace ExpertEvaluation.forms
             try
             {
                 var id = GetSelectedQuestionNumber();
-                Question question = Dao.GetQuestionById(id);
+                Question question = Dao.GetQuestionByNumber(id);
                 this.Hide();
                 var questionForm = new QuestionForm(this, question);
                 questionForm.Show();

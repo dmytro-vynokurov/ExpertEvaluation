@@ -33,10 +33,10 @@ namespace ExpertEvaluation.classes
             return result;
         }
 
-        public static Question GetQuestionById(int id)
+        public static Question GetQuestionByNumber(int number)
         {
             var collection = GetCollection<Question>("questions");
-            var query = Query<Question>.EQ(e => e.QuestionNumber, id);
+            var query = Query<Question>.EQ(e => e.QuestionNumber, number);
             var result = collection.FindOneAs<Question>(query);
             return result;  
         }
