@@ -18,6 +18,7 @@ namespace ExpertEvaluation.forms
         public QuestionaryForm()
         {
             InitializeComponent();
+            InitializeQuestionsLV();
         }
 
         private void questionsLV_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,12 +38,18 @@ namespace ExpertEvaluation.forms
         
         private void QuestionaryForm_Load(object sender, EventArgs e)
         {
+            InitializeQuestionsLV();
+        }
+
+        private void InitializeQuestionsLV()
+        {
             var questions = Dao.GetQuestions();
+            Console.WriteLine(questions);
             foreach (var question in questions)
             {
                 questionsLV.Items.Add(question.QuestionNumber.ToString());
             }
-            if(questions.Count()>0)questionsLV.Items[0].Selected = true;
+            if (questions.Count() > 0) questionsLV.Items[0].Selected = true;
         }
 
         private void saveButton_Click(object sender, EventArgs e)

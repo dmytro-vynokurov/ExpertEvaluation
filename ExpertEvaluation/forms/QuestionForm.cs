@@ -37,7 +37,8 @@ namespace ExpertEvaluation.forms
             {
                 {QuestionType.BooleanQuestion, booleanQuestionPanel},
                 {QuestionType.OneOfMany,oneOfManyQuestionPanel},
-                {QuestionType.ManyOfMany,manyOfManyQuestionPanel}
+                {QuestionType.ManyOfMany,manyOfManyQuestionPanel},
+                {QuestionType.NumberQuestion, numberQuestionPanel}
                 // TODO: add mappings between new question types and panels
             };
         }

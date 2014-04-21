@@ -10,8 +10,10 @@ namespace ExpertEvaluation.classes
     {
         BooleanQuestion,
         OneOfMany,
-        ManyOfMany
-        // TODO: add new question types to enum here
+        ManyOfMany,
+        NumberQuestion,
+        Interval, 
+        FuzzyInterval
     };
 
     public class Question
@@ -21,8 +23,10 @@ namespace ExpertEvaluation.classes
             {
                 {QuestionType.BooleanQuestion, "Boolean"},
                 {QuestionType.OneOfMany, "One of many"},
-                {QuestionType.ManyOfMany, "Many of many"}
-                // TODO: add mappings for new question types to their text representation
+                {QuestionType.ManyOfMany, "Many of many"},
+                {QuestionType.NumberQuestion, "Number"},
+                {QuestionType.Interval, "Interval"},
+                {QuestionType.FuzzyInterval, "Fuzzy interval"}
             };
 
         public static IEnumerable<QuestionType> GetQuestionTypes()
