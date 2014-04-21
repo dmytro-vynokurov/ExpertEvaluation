@@ -63,7 +63,7 @@ namespace ExpertEvaluation.forms
         private void PrepareTypeSpecificData()
         {
             SelectAnswerPanel();
-            switch (_selectedQuestion.QSuestionType)
+            switch (_selectedQuestion.QuestionType)
             {
 
                 case QuestionType.OneOfMany:
