@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\FuzzyInterval.cs" />
+    <Compile Include="classes\Interval.cs" />
     <Compile Include="forms\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
