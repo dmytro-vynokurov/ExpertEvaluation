@@ -14,6 +14,11 @@ namespace ExpertEvaluation.classes
         public QuestionType QuestionType { get; set; }
         public bool BooleanAnswer { get; set; }
         public int OneOfManyAnswer { get; set; }
+        public int[] ManyOfManyAnswer { get; set; }
+        public int NumberAnswer { get; set; }
+        public Interval IntervalAnswer { get; set; }
+        public FuzzyInterval FuzzyIntervalAnswer { get; set; }
+
 
         public string GetStringAnswer()
         {
