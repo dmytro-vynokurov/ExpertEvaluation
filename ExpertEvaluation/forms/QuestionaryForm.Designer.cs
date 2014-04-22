@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("dhfghfgh");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("2");
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("fghfghfgh");
             System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("fghfgh");
             this.questionsLV = new System.Windows.Forms.ListView();
@@ -38,7 +38,7 @@
             this.booleanAP = new System.Windows.Forms.Panel();
             this.trueRB = new System.Windows.Forms.RadioButton();
             this.falseRB = new System.Windows.Forms.RadioButton();
-            this.someOfManyAP = new System.Windows.Forms.Panel();
+            this.manyOfManyAP = new System.Windows.Forms.Panel();
             this.numberAP = new System.Windows.Forms.Panel();
             this.numberTB = new System.Windows.Forms.TextBox();
             this.intervalAP = new System.Windows.Forms.Panel();
@@ -46,7 +46,9 @@
             this.intervalEndTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.manyOfManyCLB = new System.Windows.Forms.CheckedListBox();
             this.booleanAP.SuspendLayout();
+            this.manyOfManyAP.SuspendLayout();
             this.numberAP.SuspendLayout();
             this.intervalAP.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +58,8 @@
             this.questionsLV.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.questionsLV.FullRowSelect = true;
             this.questionsLV.GridLines = true;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem1.Checked = true;
+            listViewItem1.StateImageIndex = 1;
             listViewItem2.StateImageIndex = 0;
             listViewItem3.StateImageIndex = 0;
             this.questionsLV.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
@@ -106,9 +109,9 @@
             // 
             this.booleanAP.Controls.Add(this.falseRB);
             this.booleanAP.Controls.Add(this.trueRB);
-            this.booleanAP.Location = new System.Drawing.Point(337, 267);
+            this.booleanAP.Location = new System.Drawing.Point(337, 204);
             this.booleanAP.Name = "booleanAP";
-            this.booleanAP.Size = new System.Drawing.Size(159, 89);
+            this.booleanAP.Size = new System.Drawing.Size(100, 78);
             this.booleanAP.TabIndex = 4;
             this.booleanAP.Visible = false;
             // 
@@ -134,20 +137,21 @@
             this.falseRB.Text = "False";
             this.falseRB.UseVisualStyleBackColor = true;
             // 
-            // someOfManyAP
+            // manyOfManyAP
             // 
-            this.someOfManyAP.Location = new System.Drawing.Point(125, 161);
-            this.someOfManyAP.Name = "someOfManyAP";
-            this.someOfManyAP.Size = new System.Drawing.Size(202, 121);
-            this.someOfManyAP.TabIndex = 5;
-            this.someOfManyAP.Visible = false;
+            this.manyOfManyAP.Controls.Add(this.manyOfManyCLB);
+            this.manyOfManyAP.Location = new System.Drawing.Point(125, 161);
+            this.manyOfManyAP.Name = "manyOfManyAP";
+            this.manyOfManyAP.Size = new System.Drawing.Size(202, 121);
+            this.manyOfManyAP.TabIndex = 5;
+            this.manyOfManyAP.Visible = false;
             // 
             // numberAP
             // 
             this.numberAP.Controls.Add(this.numberTB);
             this.numberAP.Location = new System.Drawing.Point(333, 161);
             this.numberAP.Name = "numberAP";
-            this.numberAP.Size = new System.Drawing.Size(111, 47);
+            this.numberAP.Size = new System.Drawing.Size(111, 24);
             this.numberAP.TabIndex = 6;
             this.numberAP.Visible = false;
             // 
@@ -166,7 +170,7 @@
             this.intervalAP.Controls.Add(this.intervalStartTB);
             this.intervalAP.Location = new System.Drawing.Point(450, 161);
             this.intervalAP.Name = "intervalAP";
-            this.intervalAP.Size = new System.Drawing.Size(200, 100);
+            this.intervalAP.Size = new System.Drawing.Size(147, 100);
             this.intervalAP.TabIndex = 7;
             this.intervalAP.Visible = false;
             // 
@@ -202,6 +206,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "End";
             // 
+            // manyOfManyCLB
+            // 
+            this.manyOfManyCLB.FormattingEnabled = true;
+            this.manyOfManyCLB.Location = new System.Drawing.Point(4, 4);
+            this.manyOfManyCLB.Name = "manyOfManyCLB";
+            this.manyOfManyCLB.Size = new System.Drawing.Size(120, 94);
+            this.manyOfManyCLB.TabIndex = 0;
+            // 
             // QuestionaryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +221,7 @@
             this.ClientSize = new System.Drawing.Size(816, 429);
             this.Controls.Add(this.intervalAP);
             this.Controls.Add(this.numberAP);
-            this.Controls.Add(this.someOfManyAP);
+            this.Controls.Add(this.manyOfManyAP);
             this.Controls.Add(this.booleanAP);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.questionTextRTB);
@@ -221,6 +233,7 @@
             this.Load += new System.EventHandler(this.QuestionaryForm_Load);
             this.booleanAP.ResumeLayout(false);
             this.booleanAP.PerformLayout();
+            this.manyOfManyAP.ResumeLayout(false);
             this.numberAP.ResumeLayout(false);
             this.numberAP.PerformLayout();
             this.intervalAP.ResumeLayout(false);
@@ -239,7 +252,7 @@
         private System.Windows.Forms.Panel booleanAP;
         private System.Windows.Forms.RadioButton falseRB;
         private System.Windows.Forms.RadioButton trueRB;
-        private System.Windows.Forms.Panel someOfManyAP;
+        private System.Windows.Forms.Panel manyOfManyAP;
         private System.Windows.Forms.Panel numberAP;
         private System.Windows.Forms.TextBox numberTB;
         private System.Windows.Forms.Panel intervalAP;
@@ -247,5 +260,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox intervalEndTB;
         private System.Windows.Forms.TextBox intervalStartTB;
+        private System.Windows.Forms.CheckedListBox manyOfManyCLB;
     }
 }
