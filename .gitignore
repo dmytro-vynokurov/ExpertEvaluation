@@ -6,3 +6,5 @@
 /ExpertEvaluation/obj/Debug
 /ExpertEvaluation/obj/Release
 /packages
+*.bat
+/ExpertEvaluation.v12.suo
