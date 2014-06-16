@@ -94,8 +94,5 @@ namespace ExpertEvaluation.classes
             var query = Query<User>.EQ(u => u.Id, userId);
             collection.Remove(query);
         }
-
-
-
     }
 }

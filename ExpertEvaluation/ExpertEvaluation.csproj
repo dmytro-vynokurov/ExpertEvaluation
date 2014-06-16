@@ -50,7 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\FuzzyInterval.cs" />
     <Compile Include="classes\Interval.cs" />
     <Compile Include="forms\AdminForm.cs">
       <SubType>Form</SubType>
@@ -62,11 +61,11 @@
     <Compile Include="classes\Question.cs" />
     <Compile Include="classes\Sequence.cs" />
     <Compile Include="classes\User.cs" />
-    <Compile Include="forms\QuestionaryForm.cs">
+    <Compile Include="forms\AnswerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\QuestionaryForm.Designer.cs">
-      <DependentUpon>QuestionaryForm.cs</DependentUpon>
+    <Compile Include="forms\AnswerForm.Designer.cs">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\QuestionForm.cs">
       <SubType>Form</SubType>
@@ -80,6 +79,12 @@
     <Compile Include="forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\QuestionTypePickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\QuestionTypePickerForm.Designer.cs">
+      <DependentUpon>QuestionTypePickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,14 +97,17 @@
     <EmbeddedResource Include="forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\QuestionaryForm.resx">
-      <DependentUpon>QuestionaryForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\AnswerForm.resx">
+      <DependentUpon>AnswerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\QuestionTypePickerForm.resx">
+      <DependentUpon>QuestionTypePickerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

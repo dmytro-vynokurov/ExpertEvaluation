@@ -38,8 +38,8 @@ namespace ExpertEvaluation.forms
                 {QuestionType.BooleanQuestion, booleanQuestionPanel},
                 {QuestionType.OneOfMany,oneOfManyQuestionPanel},
                 {QuestionType.ManyOfMany,manyOfManyQuestionPanel},
-                {QuestionType.NumberQuestion, numberQuestionPanel}
-                // TODO: add mappings between new question types and panels
+                {QuestionType.NumberQuestion, numberQuestionPanel},
+                {QuestionType.Interval,intervalQuestionPanel}
             };
         }
 
@@ -89,9 +89,16 @@ namespace ExpertEvaluation.forms
 
         private bool ValidateFields()
         {
+            int a, b; // used for int.TryParse method only
             if (QuestionTextBox.Text.Length<1)
             {
                 MessageBox.Show(@" Please enter question text", @"Cannot create question",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!(int.TryParse(weightTB.Text,out a) && a>=0 && a<=10))
+            {
+                MessageBox.Show(@"Wrong question weight (must be from 0 to 10)", @"Cannot create question",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -113,7 +120,18 @@ namespace ExpertEvaluation.forms
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-           //TODO: add validation for new questions input here
+            if (_selectedQuestionType == QuestionType.NumberQuestion && !int.TryParse(numberQuestionTB.Text, out a))
+            {
+                MessageBox.Show(@"Incorrect right answer", @"Cannot create question",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (_selectedQuestionType == QuestionType.Interval && !(int.TryParse(intervalFromQuestionTB.Text, out a) && int.TryParse(intervalToQuestionTB.Text,out b)))
+            {
+                MessageBox.Show(@"Incorrect right answer", @"Cannot create question",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             return true;
         }
 
@@ -127,6 +145,7 @@ namespace ExpertEvaluation.forms
         {
             QuestionTextBox.Text = _question.QuestionText;
             _selectedQuestionType = _question.QuestionType;
+            weightTB.Text = _question.Weight.ToString();
             switch (_selectedQuestionType)
             {
                 case QuestionType.BooleanQuestion:
@@ -155,7 +174,14 @@ namespace ExpertEvaluation.forms
                         manyOfManyCLB.SetItemChecked(index, true);
                     }
                     break;
-                // TODO: add binding for new question types here
+                case QuestionType.NumberQuestion:
+                    numberQuestionTB.Text = _question.GetRightAnswers();
+                    break;
+                case QuestionType.Interval:
+                    String[] answers = _question.GetRightAnswers().Split(';');
+                    intervalFromQuestionTB.Text = answers[0];
+                    intervalToQuestionTB.Text = answers[1];
+                    break;
             }
         }
 
@@ -163,6 +189,7 @@ namespace ExpertEvaluation.forms
         {
             _question.QuestionText = QuestionTextBox.Text;
             _question.QuestionType = _selectedQuestionType;
+            _question.Weight = int.Parse(weightTB.Text);
             switch (_selectedQuestionType)
             {
                 case QuestionType.BooleanQuestion:
@@ -189,8 +216,16 @@ namespace ExpertEvaluation.forms
                         _question.RightAnswers.Add(checkedItem.ToString());
                     }
                     break;
-                
-                // TODO: add binding for new entity fields here
+                case QuestionType.NumberQuestion:
+                    _question.RightAnswers = new List<string>() {numberQuestionTB.Text};
+                    break;
+                case QuestionType.Interval:
+                    _question.RightAnswers = new List<string>()
+                    {
+                        intervalFromQuestionTB.Text,
+                        intervalToQuestionTB.Text
+                    };
+                    break;
             }
         }
 

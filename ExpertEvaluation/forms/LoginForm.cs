@@ -43,8 +43,8 @@ namespace ExpertEvaluation.forms
                     else
                     {
                         this.Hide();
-                        var questionaryForm = new QuestionaryForm();
-                        questionaryForm.Show();
+                        var questionTypePickerForm = new QuestionTypePickerForm();
+                        questionTypePickerForm.Show();
                     }
                 }
             }

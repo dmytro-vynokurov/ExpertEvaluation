@@ -12,8 +12,7 @@ namespace ExpertEvaluation.classes
         OneOfMany,
         ManyOfMany,
         NumberQuestion,
-        Interval, 
-        FuzzyInterval
+        Interval
     };
 
     public class Question
@@ -25,8 +24,7 @@ namespace ExpertEvaluation.classes
                 {QuestionType.OneOfMany, "One of many"},
                 {QuestionType.ManyOfMany, "Many of many"},
                 {QuestionType.NumberQuestion, "Number"},
-                {QuestionType.Interval, "Interval"},
-                {QuestionType.FuzzyInterval, "Fuzzy interval"}
+                {QuestionType.Interval, "Interval"}
             };
 
         public static IEnumerable<QuestionType> GetQuestionTypes()
@@ -37,6 +35,7 @@ namespace ExpertEvaluation.classes
         public ObjectId Id { get; set; }
         public int QuestionNumber { get; set; }
         public string QuestionText { get; set; }
+        public int Weight { get; set; }
         public QuestionType QuestionType { get; set; }
         public List<string> PossibleAnswers { get; set; }
         public List<string> RightAnswers { get; set; }
@@ -49,13 +48,21 @@ namespace ExpertEvaluation.classes
 
         public string GetRightAnswers()
         {
-            if (RightAnswers == null) return "";
-            else return String.Join("; ", RightAnswers);
+            return RightAnswers == null ? "" : String.Join("; ", RightAnswers);
         }
 
         public override string ToString()
         {
             return "Question for question #" + QuestionNumber + " of type " + QuestionType;
+        }
+
+        public static QuestionType GetByName(string questionTypeName)
+        {
+            foreach (var pair in QuestionDictionary)
+            {
+                if (questionTypeName.Equals(pair.Value)) return pair.Key;
+            }
+            throw new ArgumentException("Cannot find question by name "+questionTypeName);
         }
     }
 }

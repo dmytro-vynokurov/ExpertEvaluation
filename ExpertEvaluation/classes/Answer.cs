@@ -17,7 +17,6 @@ namespace ExpertEvaluation.classes
         public int[] ManyOfManyAnswer { get; set; }
         public int NumberAnswer { get; set; }
         public Interval IntervalAnswer { get; set; }
-        public FuzzyInterval FuzzyIntervalAnswer { get; set; }
 
 
         public string GetStringAnswer()

@@ -50,19 +50,28 @@
             this.manyOfManyCLB = new System.Windows.Forms.CheckedListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.numberQuestionPanel = new System.Windows.Forms.Panel();
-            this.numberQuestionTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.numberQuestionTB = new System.Windows.Forms.TextBox();
+            this.intervalQuestionPanel = new System.Windows.Forms.Panel();
+            this.intervalFromQuestionTB = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.intervalToQuestionTB = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.weightTB = new System.Windows.Forms.TextBox();
             this.booleanQuestionPanel.SuspendLayout();
             this.oneOfManyQuestionPanel.SuspendLayout();
             this.manyOfManyQuestionPanel.SuspendLayout();
             this.numberQuestionPanel.SuspendLayout();
+            this.intervalQuestionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // QuestionTextBox
             // 
             this.QuestionTextBox.Location = new System.Drawing.Point(80, 12);
             this.QuestionTextBox.Name = "QuestionTextBox";
-            this.QuestionTextBox.Size = new System.Drawing.Size(315, 106);
+            this.QuestionTextBox.Size = new System.Drawing.Size(268, 109);
             this.QuestionTextBox.TabIndex = 1;
             this.QuestionTextBox.Text = "";
             // 
@@ -98,9 +107,9 @@
             this.booleanQuestionPanel.Controls.Add(this.label3);
             this.booleanQuestionPanel.Controls.Add(this.falseRB);
             this.booleanQuestionPanel.Controls.Add(this.trueRB);
-            this.booleanQuestionPanel.Location = new System.Drawing.Point(401, 13);
+            this.booleanQuestionPanel.Location = new System.Drawing.Point(19, 203);
             this.booleanQuestionPanel.Name = "booleanQuestionPanel";
-            this.booleanQuestionPanel.Size = new System.Drawing.Size(221, 122);
+            this.booleanQuestionPanel.Size = new System.Drawing.Size(329, 165);
             this.booleanQuestionPanel.TabIndex = 5;
             this.booleanQuestionPanel.Visible = false;
             // 
@@ -141,9 +150,9 @@
             this.oneOfManyQuestionPanel.Controls.Add(this.label5);
             this.oneOfManyQuestionPanel.Controls.Add(this.oneOfManyRTB);
             this.oneOfManyQuestionPanel.Controls.Add(this.label4);
-            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(354, 185);
+            this.oneOfManyQuestionPanel.Location = new System.Drawing.Point(19, 203);
             this.oneOfManyQuestionPanel.Name = "oneOfManyQuestionPanel";
-            this.oneOfManyQuestionPanel.Size = new System.Drawing.Size(315, 158);
+            this.oneOfManyQuestionPanel.Size = new System.Drawing.Size(329, 165);
             this.oneOfManyQuestionPanel.TabIndex = 7;
             this.oneOfManyQuestionPanel.Visible = false;
             // 
@@ -184,7 +193,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(80, 394);
+            this.okButton.Location = new System.Drawing.Point(16, 374);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 6;
@@ -194,7 +203,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(173, 394);
+            this.cancelButton.Location = new System.Drawing.Point(97, 374);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -209,7 +218,7 @@
             this.manyOfManyQuestionPanel.Controls.Add(this.manyOfManyTB);
             this.manyOfManyQuestionPanel.Controls.Add(this.manyOfManyCLB);
             this.manyOfManyQuestionPanel.Controls.Add(this.label6);
-            this.manyOfManyQuestionPanel.Location = new System.Drawing.Point(19, 175);
+            this.manyOfManyQuestionPanel.Location = new System.Drawing.Point(19, 203);
             this.manyOfManyQuestionPanel.Name = "manyOfManyQuestionPanel";
             this.manyOfManyQuestionPanel.Size = new System.Drawing.Size(329, 165);
             this.manyOfManyQuestionPanel.TabIndex = 8;
@@ -270,18 +279,11 @@
             // 
             this.numberQuestionPanel.Controls.Add(this.label7);
             this.numberQuestionPanel.Controls.Add(this.numberQuestionTB);
-            this.numberQuestionPanel.Location = new System.Drawing.Point(236, 141);
+            this.numberQuestionPanel.Location = new System.Drawing.Point(19, 203);
             this.numberQuestionPanel.Name = "numberQuestionPanel";
-            this.numberQuestionPanel.Size = new System.Drawing.Size(200, 100);
+            this.numberQuestionPanel.Size = new System.Drawing.Size(329, 165);
             this.numberQuestionPanel.TabIndex = 9;
             this.numberQuestionPanel.Visible = false;
-            // 
-            // numberQuestionTB
-            // 
-            this.numberQuestionTB.Location = new System.Drawing.Point(16, 37);
-            this.numberQuestionTB.Name = "numberQuestionTB";
-            this.numberQuestionTB.Size = new System.Drawing.Size(100, 20);
-            this.numberQuestionTB.TabIndex = 0;
             // 
             // label7
             // 
@@ -292,11 +294,90 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Correct answer";
             // 
+            // numberQuestionTB
+            // 
+            this.numberQuestionTB.Location = new System.Drawing.Point(16, 37);
+            this.numberQuestionTB.Name = "numberQuestionTB";
+            this.numberQuestionTB.Size = new System.Drawing.Size(100, 20);
+            this.numberQuestionTB.TabIndex = 0;
+            // 
+            // intervalQuestionPanel
+            // 
+            this.intervalQuestionPanel.Controls.Add(this.intervalToQuestionTB);
+            this.intervalQuestionPanel.Controls.Add(this.label10);
+            this.intervalQuestionPanel.Controls.Add(this.label9);
+            this.intervalQuestionPanel.Controls.Add(this.label8);
+            this.intervalQuestionPanel.Controls.Add(this.intervalFromQuestionTB);
+            this.intervalQuestionPanel.Location = new System.Drawing.Point(19, 203);
+            this.intervalQuestionPanel.Name = "intervalQuestionPanel";
+            this.intervalQuestionPanel.Size = new System.Drawing.Size(329, 165);
+            this.intervalQuestionPanel.TabIndex = 10;
+            // 
+            // intervalFromQuestionTB
+            // 
+            this.intervalFromQuestionTB.Location = new System.Drawing.Point(50, 31);
+            this.intervalFromQuestionTB.Name = "intervalFromQuestionTB";
+            this.intervalFromQuestionTB.Size = new System.Drawing.Size(100, 20);
+            this.intervalFromQuestionTB.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Correct answer";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "From";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(14, 64);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "To";
+            // 
+            // intervalToQuestionTB
+            // 
+            this.intervalToQuestionTB.Location = new System.Drawing.Point(50, 57);
+            this.intervalToQuestionTB.Name = "intervalToQuestionTB";
+            this.intervalToQuestionTB.Size = new System.Drawing.Size(100, 20);
+            this.intervalToQuestionTB.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 180);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Weight";
+            // 
+            // weightTB
+            // 
+            this.weightTB.Location = new System.Drawing.Point(80, 177);
+            this.weightTB.Name = "weightTB";
+            this.weightTB.Size = new System.Drawing.Size(121, 20);
+            this.weightTB.TabIndex = 12;
+            // 
             // QuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 486);
+            this.ClientSize = new System.Drawing.Size(361, 457);
+            this.Controls.Add(this.weightTB);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.intervalQuestionPanel);
             this.Controls.Add(this.numberQuestionPanel);
             this.Controls.Add(this.manyOfManyQuestionPanel);
             this.Controls.Add(this.oneOfManyQuestionPanel);
@@ -308,7 +389,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.QuestionTextBox);
             this.Name = "QuestionForm";
-            this.Text = "Questions";
+            this.Text = "Question";
             this.Load += new System.EventHandler(this.QuestionForm_Load);
             this.booleanQuestionPanel.ResumeLayout(false);
             this.booleanQuestionPanel.PerformLayout();
@@ -318,6 +399,8 @@
             this.manyOfManyQuestionPanel.PerformLayout();
             this.numberQuestionPanel.ResumeLayout(false);
             this.numberQuestionPanel.PerformLayout();
+            this.intervalQuestionPanel.ResumeLayout(false);
+            this.intervalQuestionPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,5 +432,13 @@
         private System.Windows.Forms.Panel numberQuestionPanel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox numberQuestionTB;
+        private System.Windows.Forms.Panel intervalQuestionPanel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox intervalFromQuestionTB;
+        private System.Windows.Forms.TextBox intervalToQuestionTB;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox weightTB;
     }
 }
