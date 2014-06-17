@@ -63,8 +63,22 @@ namespace ExpertEvaluation.classes
             var collection = GetCollection<Question>("questions");
             var query = Query<Question>.EQ(e => e.QuestionNumber, questionNumber);
             collection.Remove(query);
-
         }
+
+        public static IEnumerable<Answer> GetAnswers()
+        {
+            var collection = GetCollection<Answer>("answers");
+            var cursor = collection.FindAllAs<Answer>();
+            var result = new List<Answer>(cursor);
+            return result;
+        }
+
+        public static void SaveAnswer(Answer answer)
+        {
+            var collection = GetCollection<Answer>("answers");
+            collection.Save(answer);
+        }
+
 
         public static IEnumerable<User> GetUsers()
         {

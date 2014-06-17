@@ -76,7 +76,7 @@ namespace ExpertEvaluation.forms
             {
                 questionsDGV.Rows.Add(question.QuestionNumber, question.QuestionText,
                     question.QuestionType, question.GetPossibleAnswers(),
-                    question.GetRightAnswers());
+                    question.GetRightAnswers(),question.Weight);
             }
         }
 

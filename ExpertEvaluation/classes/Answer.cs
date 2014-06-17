@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using MongoDB.Bson;
 
 namespace ExpertEvaluation.classes
 {
@@ -10,30 +12,26 @@ namespace ExpertEvaluation.classes
             QuestionType = questionType;
         }
 
+        public ObjectId Id { get; set; }
         public int QuestionNumber { get; set; }
         public QuestionType QuestionType { get; set; }
-        public bool BooleanAnswer { get; set; }
-        public int OneOfManyAnswer { get; set; }
-        public int[] ManyOfManyAnswer { get; set; }
-        public int NumberAnswer { get; set; }
-        public Interval IntervalAnswer { get; set; }
-
-
-        public string GetStringAnswer()
+        public List<String> Answers { get; set; }
+ 
+        
+        public Boolean IsCorrect()
         {
-            switch (QuestionType)
-            {
-                case QuestionType.BooleanQuestion:
-                    return BooleanAnswer.ToString();
-                case QuestionType.OneOfMany:
-                    return OneOfManyAnswer.ToString();
-                default:
-                    return "No Answer";
-            }
+            var question = Dao.GetQuestionByNumber(QuestionNumber);
+            return GetAnswers().Equals(question.GetRightAnswers());
         }
+
+        private string GetAnswers()
+        {
+            return Answers == null ? "" : String.Join("; ", Answers);
+        }
+
         public override string ToString()
         {
-            return "Answer for question #" + QuestionNumber + " of type " + QuestionType + ": " + GetStringAnswer();
+            return "Answer for question #" + QuestionNumber + " of type " + QuestionType + ": " + GetAnswers();
         }
 
     }

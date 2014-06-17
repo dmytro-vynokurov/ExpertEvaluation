@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "345345345",
+            "23234",
+            "234234"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "545345345",
+            ""}, -1);
             this.questionNumberLabel = new System.Windows.Forms.Label();
             this.questionTextRTB = new System.Windows.Forms.RichTextBox();
             this.nextButton = new System.Windows.Forms.Button();
             this.booleanAP = new System.Windows.Forms.Panel();
             this.falseRB = new System.Windows.Forms.RadioButton();
             this.trueRB = new System.Windows.Forms.RadioButton();
-            this.manyOfManyAP = new System.Windows.Forms.Panel();
-            this.manyOfManyCLB = new System.Windows.Forms.CheckedListBox();
             this.numberAP = new System.Windows.Forms.Panel();
             this.numberTB = new System.Windows.Forms.TextBox();
             this.intervalAP = new System.Windows.Forms.Panel();
@@ -43,10 +48,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.intervalEndTB = new System.Windows.Forms.TextBox();
             this.intervalStartTB = new System.Windows.Forms.TextBox();
+            this.someOfManyAP = new System.Windows.Forms.Panel();
+            this.someOfManyLB = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.questionWeightLabel = new System.Windows.Forms.Label();
             this.booleanAP.SuspendLayout();
-            this.manyOfManyAP.SuspendLayout();
             this.numberAP.SuspendLayout();
             this.intervalAP.SuspendLayout();
+            this.someOfManyAP.SuspendLayout();
             this.SuspendLayout();
             // 
             // questionNumberLabel
@@ -65,7 +74,7 @@
             this.questionTextRTB.Enabled = false;
             this.questionTextRTB.Location = new System.Drawing.Point(12, 26);
             this.questionTextRTB.Name = "questionTextRTB";
-            this.questionTextRTB.Size = new System.Drawing.Size(315, 91);
+            this.questionTextRTB.Size = new System.Drawing.Size(315, 76);
             this.questionTextRTB.TabIndex = 2;
             this.questionTextRTB.Text = "Question text goes here";
             // 
@@ -110,23 +119,6 @@
             this.trueRB.TabStop = true;
             this.trueRB.Text = "True";
             this.trueRB.UseVisualStyleBackColor = true;
-            // 
-            // manyOfManyAP
-            // 
-            this.manyOfManyAP.Controls.Add(this.manyOfManyCLB);
-            this.manyOfManyAP.Location = new System.Drawing.Point(13, 133);
-            this.manyOfManyAP.Name = "manyOfManyAP";
-            this.manyOfManyAP.Size = new System.Drawing.Size(202, 121);
-            this.manyOfManyAP.TabIndex = 5;
-            this.manyOfManyAP.Visible = false;
-            // 
-            // manyOfManyCLB
-            // 
-            this.manyOfManyCLB.FormattingEnabled = true;
-            this.manyOfManyCLB.Location = new System.Drawing.Point(4, 4);
-            this.manyOfManyCLB.Name = "manyOfManyCLB";
-            this.manyOfManyCLB.Size = new System.Drawing.Size(120, 94);
-            this.manyOfManyCLB.TabIndex = 0;
             // 
             // numberAP
             // 
@@ -188,14 +180,54 @@
             this.intervalStartTB.Size = new System.Drawing.Size(100, 20);
             this.intervalStartTB.TabIndex = 0;
             // 
+            // someOfManyAP
+            // 
+            this.someOfManyAP.Controls.Add(this.someOfManyLB);
+            this.someOfManyAP.Location = new System.Drawing.Point(13, 133);
+            this.someOfManyAP.Name = "someOfManyAP";
+            this.someOfManyAP.Size = new System.Drawing.Size(202, 121);
+            this.someOfManyAP.TabIndex = 8;
+            // 
+            // someOfManyLB
+            // 
+            this.someOfManyLB.CheckBoxes = true;
+            this.someOfManyLB.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.someOfManyLB.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
+            this.someOfManyLB.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem3,
+            listViewItem4});
+            this.someOfManyLB.Location = new System.Drawing.Point(4, 4);
+            this.someOfManyLB.Name = "someOfManyLB";
+            this.someOfManyLB.Size = new System.Drawing.Size(168, 102);
+            this.someOfManyLB.TabIndex = 0;
+            this.someOfManyLB.UseCompatibleStateImageBehavior = false;
+            this.someOfManyLB.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 120;
+            // 
+            // questionWeightLabel
+            // 
+            this.questionWeightLabel.AutoSize = true;
+            this.questionWeightLabel.Location = new System.Drawing.Point(12, 109);
+            this.questionWeightLabel.Name = "questionWeightLabel";
+            this.questionWeightLabel.Size = new System.Drawing.Size(47, 13);
+            this.questionWeightLabel.TabIndex = 9;
+            this.questionWeightLabel.Text = "Weight: ";
+            // 
             // AnswerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(242, 308);
+            this.Controls.Add(this.questionWeightLabel);
+            this.Controls.Add(this.someOfManyAP);
             this.Controls.Add(this.intervalAP);
             this.Controls.Add(this.numberAP);
-            this.Controls.Add(this.manyOfManyAP);
             this.Controls.Add(this.booleanAP);
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.questionTextRTB);
@@ -204,11 +236,11 @@
             this.Text = "Answer Form";
             this.booleanAP.ResumeLayout(false);
             this.booleanAP.PerformLayout();
-            this.manyOfManyAP.ResumeLayout(false);
             this.numberAP.ResumeLayout(false);
             this.numberAP.PerformLayout();
             this.intervalAP.ResumeLayout(false);
             this.intervalAP.PerformLayout();
+            this.someOfManyAP.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +254,6 @@
         private System.Windows.Forms.Panel booleanAP;
         private System.Windows.Forms.RadioButton falseRB;
         private System.Windows.Forms.RadioButton trueRB;
-        private System.Windows.Forms.Panel manyOfManyAP;
         private System.Windows.Forms.Panel numberAP;
         private System.Windows.Forms.TextBox numberTB;
         private System.Windows.Forms.Panel intervalAP;
@@ -230,6 +261,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox intervalEndTB;
         private System.Windows.Forms.TextBox intervalStartTB;
-        private System.Windows.Forms.CheckedListBox manyOfManyCLB;
+        private System.Windows.Forms.Panel someOfManyAP;
+        private System.Windows.Forms.ListView someOfManyLB;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label questionWeightLabel;
     }
 }

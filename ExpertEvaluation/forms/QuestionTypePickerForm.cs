@@ -29,9 +29,15 @@ namespace ExpertEvaluation.forms
                 return;
             }
             var questionType = Question.GetByName(comboBox1.Text);
-            this.Hide();
-            var answerForm = new AnswerForm(questionType);
-            answerForm.Show();
+            if (Dao.GetQuestions().Where(x => x.QuestionType.Equals(questionType)).Count() == 0)
+                MessageBox.Show(@" Please choose another question type", @"No questions of chosen type",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                this.Hide();
+                var answerForm = new AnswerForm(questionType);
+                answerForm.Show();
+            }
         }
 
         private void QuestionTypePicker_Load(object sender, EventArgs e)

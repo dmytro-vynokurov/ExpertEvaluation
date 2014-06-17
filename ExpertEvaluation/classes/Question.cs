@@ -42,8 +42,7 @@ namespace ExpertEvaluation.classes
 
         public string GetPossibleAnswers()
         {
-            if (PossibleAnswers == null) return "";
-            else return String.Join("; ", PossibleAnswers);
+            return PossibleAnswers == null ? "" : String.Join("; ", PossibleAnswers);
         }
 
         public string GetRightAnswers()
@@ -63,6 +62,42 @@ namespace ExpertEvaluation.classes
                 if (questionTypeName.Equals(pair.Value)) return pair.Key;
             }
             throw new ArgumentException("Cannot find question by name "+questionTypeName);
+        }
+
+        // Indicates percentage of answers that show that this question is HARDER than it weights
+        private int MinComplexityBound()
+        {
+            //less people answer to this question than expected
+            return ExpectedCorrectAnswerPercentage() - 10;
+        }
+
+        // Indicates percentage of answers that show that this question is EASIER than it weights
+        private int MaxComplexityBound()
+        {
+            // more people answer to this question correctly than expected
+            return ExpectedCorrectAnswerPercentage() + 10;
+        }
+
+        private int ExpectedCorrectAnswerPercentage()
+        {
+            // Weight from 0 to 10. Questions with weight 10 are the hardest.
+            // The harder the question is the less people answer to it correctly.
+            return (10 - Weight)*10;
+        }
+
+        public void UpdateWeight(List<Answer> answers)
+        {
+            var correctAnswers = answers.Count(x => x.IsCorrect());
+            var totalAnswers = answers.Count();
+
+            // Percentage of correct answers
+            var answerRate = 100*correctAnswers/totalAnswers;
+
+            // If there are too few correct answers, increase question weight
+            if (answerRate < MinComplexityBound()) Weight = Math.Max(Weight + 1, 0);  // INCREASE weight. Weight cannot be more than 10
+
+            // If there are too many correct answers, decrease question weight
+            else if (answerRate > MaxComplexityBound()) Weight = Math.Min(Weight - 1, 10);  // DECREASE Weight. Weight cannot be less than 0
         }
     }
 }
